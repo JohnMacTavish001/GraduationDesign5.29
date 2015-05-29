@@ -7,7 +7,7 @@ int writeQueue(rowCount)                            //用来根据输入的丢包率创建丢
 	char ch;
 	fp = fopen("D:/writeQueue.txt", "w");
 	int losePercentage = 0;
-	printf("请输入丢包率""%%""\n");
+	printf("请输入丢包率（'%'）\n");
 	scanf("%d", &losePercentage);
 	int buff = 0;                                    //用来暂时存放产生的随机数的变量
 
