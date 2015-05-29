@@ -1,0 +1,15 @@
+*.exe
+*.ilk
+Debug/GraduationDesign.pdb
+*.sdf
+*.sln
+*.suo
+GraduationDesign/Debug/excicute.obj
+*.tlog
+GraduationDesign/Debug/main.obj
+*.idb
+GraduationDesign/Debug/vc120.pdb
+*.obj
+*.vcxproj
+GraduationDesign/GraduationDesign.vcxproj.filters
+*.log
