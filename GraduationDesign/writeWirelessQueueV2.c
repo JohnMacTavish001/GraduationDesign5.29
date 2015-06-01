@@ -65,6 +65,8 @@ int writeWirelessQueueV2(rowCount)
 		}
 		else
 		{
+			srand((unsigned)time(NULL));
+
 			continueLosingBuff = rand() % 100 + 0;
 
 			//continueLosingPercentage = 100 - (100 - lostPercentage) * 0.1;

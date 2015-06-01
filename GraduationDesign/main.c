@@ -25,7 +25,7 @@ void main()                                       //主函数，主逻辑
 	}
 
 
-	excicute();											//针对writeQueue文件对rd文件进行操作
+	//excicute();											//针对writeQueue文件对rd文件进行操作
 
 
 
@@ -33,5 +33,30 @@ void main()                                       //主函数，主逻辑
 
 
 
+	countResultRows(rowCount());
+}
 
+
+int countResultRows(rowCount)
+{
+	FILE *fp;
+	char ch ="";
+	int resultRows = 0;
+	fp = fopen("D:/writeQueue.txt", "rt");
+	if (fp == NULL)
+	{
+		printf("writeQueue文件不存在！");
+		return 1;
+	}
+	while (ch != EOF)
+	{
+		ch = fgetc(fp);
+		resultRows++;
+	}
+	
+	printf("%d\n", rowCount);
+	printf("%d\n", resultRows);
+	//printf("", rowCount == resultRows ? "True" : "False");
+	getchar();
+	getchar();
 }

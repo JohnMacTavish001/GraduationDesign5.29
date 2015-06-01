@@ -6,7 +6,7 @@ int rowCount()                                    //计算文件行号的函数
 	FILE *fp;
 	char ch;
 	int i = 0;                                    //用来统计有多少行的变量
-	fp = fopen("D:/sd", "rt");
+	fp = fopen("D:/rd", "rt");
 	if (fp == NULL)
 	{
 		printf("无法打开文件");
