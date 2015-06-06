@@ -12,7 +12,7 @@ int excicute()										//读取文件的函数,将rowCount数出的行数传入
 	char ch3 = "";									//用来打开修改之前的rd文件的缓存变量
 
 	fp = fopen("D:/writeQueue.txt", "rt");
-	fp2 = fopen("D:/newRD.txt", "w+");
+	fp2 = fopen("D:/newRD", "w+");
 	fp3 = fopen("D:/sd", "rt");
 
 	if (fp == NULL)								//判断writeQueue文件是否存在，不存在则抛出异常
@@ -74,6 +74,7 @@ int excicute()										//读取文件的函数,将rowCount数出的行数传入
 	fclose(fp2);
 	fclose(fp3);
 
+	printf("新的rd文件输出成功！\n");
 
 	return 0;
 }

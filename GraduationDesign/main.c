@@ -25,7 +25,7 @@ void main()                                       //主函数，主逻辑
 	}
 
 
-	//excicute();											//针对writeQueue文件对rd文件进行操作
+	excicute();											//针对writeQueue文件对rd文件进行操作
 
 
 
