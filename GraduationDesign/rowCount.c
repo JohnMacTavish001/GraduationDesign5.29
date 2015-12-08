@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int rowCount()                                    //¼ÆËãÎÄ¼şĞĞºÅµÄº¯Êı
+int rowCount()                                    //è®¡ç®—æ–‡ä»¶è¡Œå·çš„å‡½æ•°
 {
 	FILE *fp;
 	char ch;
-	int i = 0;                                    //ÓÃÀ´Í³¼ÆÓĞ¶àÉÙĞĞµÄ±äÁ¿
+	int i = 0;                                    //ç”¨æ¥ç»Ÿè®¡æœ‰å¤šå°‘è¡Œçš„å˜é‡
 	fp = fopen("D:/rd", "rt");
 	if (fp == NULL)
 	{
-		printf("ÎŞ·¨´ò¿ªÎÄ¼ş");
+		printf("æ— æ³•æ‰“å¼€æ–‡ä»¶");
 		getchar();
 		exit(1);
 	}

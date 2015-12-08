@@ -3,29 +3,29 @@
 #include <windows.h>
 
 
-void main()                                       //Ö÷º¯Êı£¬Ö÷Âß¼­
+void main()                                       //ä¸»å‡½æ•°ï¼Œä¸»é€»è¾‘
 {
 	int choice = 0;
 
-	printf("ÇëÑ¡ÔñĞèÒªÄ£ÄâµÄ¶ª°üÀàĞÍ£º\n 1.ÓĞÏß»·¾³ÏÂ¶ª°ü¡£ \n 2.ÎŞÏß»·¾³ÏÂ¶ª°ü¡£\n\n");
+	printf("è¯·é€‰æ‹©éœ€è¦æ¨¡æ‹Ÿçš„ä¸¢åŒ…ç±»å‹ï¼š\n 1.æœ‰çº¿ç¯å¢ƒä¸‹ä¸¢åŒ…ã€‚ \n 2.æ— çº¿ç¯å¢ƒä¸‹ä¸¢åŒ…ã€‚\n\n");
 
 	scanf("%d", &choice);
 
 	switch (choice)
 	{
-	case 1: writeQueue(rowCount());						  //¸ù¾İÊä³öµÄĞĞÊı£¬Ğ´³öÓÃ»§¶¨Òå¶ª°üÂÊµÄ¶ª°üĞòÁĞ£¨ÀëÉ¢ĞòÁĞ£©
+	case 1: writeQueue(rowCount());						  //æ ¹æ®è¾“å‡ºçš„è¡Œæ•°ï¼Œå†™å‡ºç”¨æˆ·å®šä¹‰ä¸¢åŒ…ç‡çš„ä¸¢åŒ…åºåˆ—ï¼ˆç¦»æ•£åºåˆ—ï¼‰
 		break;
 	case 2: writeWirelessQueueV3(rowCount());
 		break;
-	case 0: printf("ÇëÊäÈëÄúµÄÑ¡Ôñ\n\n");
+	case 0: printf("è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©\n\n");
 		main();
 		break;
-	default: printf("ÄúµÄÑ¡ÔñÓĞÎó\n\n");
+	default: printf("æ‚¨çš„é€‰æ‹©æœ‰è¯¯\n\n");
 		main();
 	}
 
 
-	excicute();											//Õë¶ÔwriteQueueÎÄ¼ş¶ÔrdÎÄ¼ş½øĞĞ²Ù×÷
+	excicute();											//é’ˆå¯¹writeQueueæ–‡ä»¶å¯¹rdæ–‡ä»¶è¿›è¡Œæ“ä½œ
 
 
 
@@ -47,7 +47,7 @@ void main()                                       //Ö÷º¯Êı£¬Ö÷Âß¼­
 //	fp = fopen("D:/writeQueue.txt", "rt");
 //	if (fp == NULL)
 //	{
-//		printf("writeQueueÎÄ¼ş²»´æÔÚ£¡");
+//		printf("writeQueueæ–‡ä»¶ä¸å­˜åœ¨ï¼");
 //		return 1;
 //	}
 //	while (ch != EOF)

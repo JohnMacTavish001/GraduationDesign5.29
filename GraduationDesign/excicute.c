@@ -1,40 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int excicute()										//¶ÁÈ¡ÎÄ¼þµÄº¯Êý,½«rowCountÊý³öµÄÐÐÊý´«Èë
+int excicute()										//è¯»å–æ–‡ä»¶çš„å‡½æ•°,å°†rowCountæ•°å‡ºçš„è¡Œæ•°ä¼ å…¥
 {
-	FILE *fp;									//ÓÃÀ´¶ÁÈ¡writeQueueÎÄ¼þµÄÖ¸Õë
-	FILE *fp2;									//ÓÃÀ´²Ù×÷ÐÞ¸Ä¹ýºóRDÎÄ¼þµÄÖ¸Õë
-	FILE *fp3;									//ÓÃÀ´´ò¿ªÐÞ¸ÄÖ®Ç°µÄRDÎÄ¼þµÄÖ¸Õë
+	FILE *fp;									//ç”¨æ¥è¯»å–writeQueueæ–‡ä»¶çš„æŒ‡é’ˆ
+	FILE *fp2;									//ç”¨æ¥æ“ä½œä¿®æ”¹è¿‡åŽRDæ–‡ä»¶çš„æŒ‡é’ˆ
+	FILE *fp3;									//ç”¨æ¥æ‰“å¼€ä¿®æ”¹ä¹‹å‰çš„RDæ–‡ä»¶çš„æŒ‡é’ˆ
 
-	char ch = "";									//ÓÃÀ´¶ÁÈ¡writeQueueÎÄ¼þµÄ»º´æ±äÁ¿
-	char ch2 = "";									//ÓÃÀ´²Ù×÷ÐÞ¸Ä¹ýºórd(newRD)ÎÄ¼þµÄ»º´æ±äÁ¿
-	char ch3 = "";									//ÓÃÀ´´ò¿ªÐÞ¸ÄÖ®Ç°µÄrdÎÄ¼þµÄ»º´æ±äÁ¿
+	char ch = "";									//ç”¨æ¥è¯»å–writeQueueæ–‡ä»¶çš„ç¼“å­˜å˜é‡
+	char ch2 = "";									//ç”¨æ¥æ“ä½œä¿®æ”¹è¿‡åŽrd(newRD)æ–‡ä»¶çš„ç¼“å­˜å˜é‡
+	char ch3 = "";									//ç”¨æ¥æ‰“å¼€ä¿®æ”¹ä¹‹å‰çš„rdæ–‡ä»¶çš„ç¼“å­˜å˜é‡
 
 	fp = fopen("D:/writeQueue.txt", "rt");
 	fp2 = fopen("D:/newRD", "w+");
 	fp3 = fopen("D:/sd", "rt");
 
-	if (fp == NULL)								//ÅÐ¶ÏwriteQueueÎÄ¼þÊÇ·ñ´æÔÚ£¬²»´æÔÚÔòÅ×³öÒì³£
+	if (fp == NULL)								//åˆ¤æ–­writeQueueæ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™æŠ›å‡ºå¼‚å¸¸
 	{
-		printf("writeQueueÎÄµµ²»´æÔÚ£¡");
+		printf("writeQueueæ–‡æ¡£ä¸å­˜åœ¨ï¼");
 		getchar();
 		getchar();
 		exit(1);
 	}
 
-	if (fp3 == NULL)							//ÅÐ¶ÏrdÎÄ¼þÊÇ·ñ´æÔÚ£¬²»´æÔÚÔòÅ×³öÒì³£
+	if (fp3 == NULL)							//åˆ¤æ–­rdæ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™æŠ›å‡ºå¼‚å¸¸
 	{
-		printf("rdÎÄµµ²»´æÔÚ£¡");
+		printf("rdæ–‡æ¡£ä¸å­˜åœ¨ï¼");
 		getchar();
 		getchar();
 		exit(1);
 	}
 
 
-
-
-	while (!feof(fp))							//Èç¹ûwriteQueueÎÄ¼þÖÐ¶Áµ½Ò»¸ö¡°-¡±£¬Ôò½«Ô­rdÎÄ¼þÖÐÒ»ÐÐÐ´Èëµ½newRDÎÄ¼þÖÐ¡£
+	while (!feof(fp))							//å¦‚æžœwriteQueueæ–‡ä»¶ä¸­è¯»åˆ°ä¸€ä¸ªâ€œ-â€ï¼Œåˆ™å°†åŽŸrdæ–‡ä»¶ä¸­ä¸€è¡Œå†™å…¥åˆ°newRDæ–‡ä»¶ä¸­ã€‚
 	{
 		ch = fgetc(fp);
 		if (ch == '-')
@@ -52,7 +50,7 @@ int excicute()										//¶ÁÈ¡ÎÄ¼þµÄº¯Êý,½«rowCountÊý³öµÄÐÐÊý´«Èë
 
 		}
 
-		if (ch == '|')							//Èç¹ûwriteQueueÎÄ¼þÖÐ¶Áµ½Ò»¸ö¡°|¡±£¬Ôò²»½øÐÐÐ´Èë£¬Ö¸ÕëºóÒÆ¡£
+		if (ch == '|')							//å¦‚æžœwriteQueueæ–‡ä»¶ä¸­è¯»åˆ°ä¸€ä¸ªâ€œ|â€ï¼Œåˆ™ä¸è¿›è¡Œå†™å…¥ï¼ŒæŒ‡é’ˆåŽç§»ã€‚
 		{
 			while (!feof(fp3))
 			{
@@ -74,7 +72,7 @@ int excicute()										//¶ÁÈ¡ÎÄ¼þµÄº¯Êý,½«rowCountÊý³öµÄÐÐÊý´«Èë
 	fclose(fp2);
 	fclose(fp3);
 
-	printf("ÐÂµÄrdÎÄ¼þÊä³ö³É¹¦£¡\n");
+	printf("æ–°çš„rdæ–‡ä»¶è¾“å‡ºæˆåŠŸï¼\n");
 
 	return 0;
 }

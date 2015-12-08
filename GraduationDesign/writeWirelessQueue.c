@@ -12,21 +12,21 @@ int writeWirelessQueue(rowCount)
 
 	int losePercentage = 0;
 
-	printf("ÇëÊäÈë¶ª°üÂÊ£¨'%'£©\n");
+	printf("è¯·è¾“å…¥ä¸¢åŒ…ç‡ï¼ˆ'%'ï¼‰\n");
 
 	scanf("%d", &losePercentage);
 
-	int lostPackage = rowCount * losePercentage / 100;	//¼ÆËã³öÒ»¹²¶ªÊ§µÄÊı¾İ°üÒÔ·½±ãÒÔºóµÄ¼ÆËã
+	int lostPackage = rowCount * losePercentage / 100;	//è®¡ç®—å‡ºä¸€å…±ä¸¢å¤±çš„æ•°æ®åŒ…ä»¥æ–¹ä¾¿ä»¥åçš„è®¡ç®—
 
-	int buff = 0;										//ÓÃÀ´ÔİÊ±´æ·Å²úÉúµÄËæ»úÊıµÄ±äÁ¿
+	int buff = 0;										//ç”¨æ¥æš‚æ—¶å­˜æ”¾äº§ç”Ÿçš„éšæœºæ•°çš„å˜é‡
 
-	int lostPackageAmount = 0;							//ÓÃÀ´Ôİ´æÃ¿¸ö¶ª°üÊ±¿Ì¶ªµôÊı¾İ°üµÄ±äÁ¿
+	int lostPackageAmount = 0;							//ç”¨æ¥æš‚å­˜æ¯ä¸ªä¸¢åŒ…æ—¶åˆ»ä¸¢æ‰æ•°æ®åŒ…çš„å˜é‡
 
-	srand((unsigned)time(NULL));						//ÓÃÊ±¼ä×öÖÖ£¬Ã¿´Î²úÉúËæ»úÊı²»Ò»Ñù
+	srand((unsigned)time(NULL));						//ç”¨æ—¶é—´åšç§ï¼Œæ¯æ¬¡äº§ç”Ÿéšæœºæ•°ä¸ä¸€æ ·
 
 	for (int i = 0; i<rowCount; i++)
 	{
-		buff = rand() % 100 + 0;						//²úÉú1-100µÄËæ»úÊı
+		buff = rand() % 100 + 0;						//äº§ç”Ÿ1-100çš„éšæœºæ•°
 
 
 
@@ -37,9 +37,9 @@ int writeWirelessQueue(rowCount)
 	}
 	else
 	{
-		srand((unsigned)time(NULL));			//Ã¿´Î¶ª°üµÄÊıÄ¿Ò²ÓÉÊ±¼ä×öÖÖ
+		srand((unsigned)time(NULL));			//æ¯æ¬¡ä¸¢åŒ…çš„æ•°ç›®ä¹Ÿç”±æ—¶é—´åšç§
 
-		lostPackageAmount = rand() % lostPackage + 0;//Ã¿´Î¶ª°üµÄÊıÄ¿Ëæ»ú£¬µ«ÊÇ¶ª°üµÄÊıÄ¿ÔÚ0µ½¶ª°ü×ÜÊı£¨¶ª°üÂÊ*ÓÉrowCountº¯ÊıµÃ³öµÄ×ÜĞĞÊı£©Ö®¼ä
+		lostPackageAmount = rand() % lostPackage + 0;//æ¯æ¬¡ä¸¢åŒ…çš„æ•°ç›®éšæœºï¼Œä½†æ˜¯ä¸¢åŒ…çš„æ•°ç›®åœ¨0åˆ°ä¸¢åŒ…æ€»æ•°ï¼ˆä¸¢åŒ…ç‡*ç”±rowCountå‡½æ•°å¾—å‡ºçš„æ€»è¡Œæ•°ï¼‰ä¹‹é—´
 
 		while (lostPackage > 0)
 		{

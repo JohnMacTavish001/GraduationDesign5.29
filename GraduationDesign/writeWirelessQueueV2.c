@@ -11,36 +11,36 @@ int writeWirelessQueueV2(rowCount)
 	FILE *fp;
 	char ch;
 
-	int lostPercentage = 0;											//ÓÃÀ´±£´æ¶ª°üÂÊµÄ±äÁ¿
-	int buff = 0;													//ÓÃÀ´ÔÝ´æÃ¿´Î²úÉúµÄËæ»úÊýµÄ±äÁ¿
-	int lostPackageAmount = 0;										//ÓÃÀ´±£´æ×Ü¹²¶ªµôµÄ°üµÄÊýÁ¿
-	int continueLosingBuff = 0;										//ÔÚ·¢Éú¶ª°üÊ±ÔÝ´æÓÃÀ´ÅÐ¶ÏÊÇ·ñ¼ÌÐø¶ª°üµÄËæ»úÊý
-	int continueLosingPercentage = 0;								//ÔÚÒ»¸öÊý¾Ý°ü¶ªÊ§ºóÏÂÒ»¸ö°ü¼ÌÐø¶ªÊ§µÄ¸ÅÂÊ
-	BOOL status = TRUE;												//±íÊ¾±¾Ê±¿Ì×´Ì¬µÄÐÅºÅÁ¿¡£TRUE±íÊ¾²»¶ª°ü£¬FALSE±íÊ¾¶ª°ü
-	BOOL lastStatus = FALSE;										//±íÊ¾ÉÏÒ»¸öÊ±¿Ì×´Ì¬µÄÐÅºÅÁ¿¡£TRUE±íÊ¾²»¶ª°ü£¬FALSE±íÊ¾¶ª°ü
+	int lostPercentage = 0;											//ç”¨æ¥ä¿å­˜ä¸¢åŒ…çŽ‡çš„å˜é‡
+	int buff = 0;													//ç”¨æ¥æš‚å­˜æ¯æ¬¡äº§ç”Ÿçš„éšæœºæ•°çš„å˜é‡
+	int lostPackageAmount = 0;										//ç”¨æ¥ä¿å­˜æ€»å…±ä¸¢æŽ‰çš„åŒ…çš„æ•°é‡
+	int continueLosingBuff = 0;										//åœ¨å‘ç”Ÿä¸¢åŒ…æ—¶æš‚å­˜ç”¨æ¥åˆ¤æ–­æ˜¯å¦ç»§ç»­ä¸¢åŒ…çš„éšæœºæ•°
+	int continueLosingPercentage = 0;								//åœ¨ä¸€ä¸ªæ•°æ®åŒ…ä¸¢å¤±åŽä¸‹ä¸€ä¸ªåŒ…ç»§ç»­ä¸¢å¤±çš„æ¦‚çŽ‡
+	BOOL status = TRUE;												//è¡¨ç¤ºæœ¬æ—¶åˆ»çŠ¶æ€çš„ä¿¡å·é‡ã€‚TRUEè¡¨ç¤ºä¸ä¸¢åŒ…ï¼ŒFALSEè¡¨ç¤ºä¸¢åŒ…
+	BOOL lastStatus = FALSE;										//è¡¨ç¤ºä¸Šä¸€ä¸ªæ—¶åˆ»çŠ¶æ€çš„ä¿¡å·é‡ã€‚TRUEè¡¨ç¤ºä¸ä¸¢åŒ…ï¼ŒFALSEè¡¨ç¤ºä¸¢åŒ…
 
 	fp = fopen("D:/writeQueue.txt", "w");
 
-	printf("ÇëÊäÈë¶ª°üÂÊ""(""%%"")""\n");
+	printf("è¯·è¾“å…¥ä¸¢åŒ…çŽ‡""(""%%"")""\n");
 	scanf("%d", &lostPercentage);
 
 	if (lostPercentage > 100 || lostPercentage < 0)
 	{
-		printf("ÊäÈëÓÐÎó£¬ÇëÖØÐÂÊäÈë");
+		printf("è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥");
 		fclose(fp);
 		return 1;
 	}
 
-	lostPackageAmount = lostPercentage * rowCount / 100;			//Ê×ÏÈËã³öÒ»¹²Òª¶ªÆú¶àÉÙÐÐ
+	lostPackageAmount = lostPercentage * rowCount / 100;			//é¦–å…ˆç®—å‡ºä¸€å…±è¦ä¸¢å¼ƒå¤šå°‘è¡Œ
 	//printf("%d", lostPackageAmount);
 
 	srand((unsigned)time(NULL));
 
-	for (int i = 0; i <= rowCount; i++)								//ÒÀ¾ÝrowCountÊý³öµÄÐÐÊý½øÐÐÑ­»·£¬ÒÔÐ´³öÕýÈ·ÊýÁ¿µÄ¡°-¡±ºÍ¡°|¡±
+	for (int i = 0; i <= rowCount; i++)								//ä¾æ®rowCountæ•°å‡ºçš„è¡Œæ•°è¿›è¡Œå¾ªçŽ¯ï¼Œä»¥å†™å‡ºæ­£ç¡®æ•°é‡çš„â€œ-â€å’Œâ€œ|â€
 	{
 		buff = rand() % 100 + 0;
 
-		if (lostPackageAmount <= 0)									//Èç¹û¸Ã±äÁ¿·ÇÕýÊýÔòËµÃ÷ÒÑ¾­¶ªÆúÁËÏàÓ¦ÊýÁ¿µÄÐÐ£¬Ìø³öÑ­»·
+		if (lostPackageAmount <= 0)									//å¦‚æžœè¯¥å˜é‡éžæ­£æ•°åˆ™è¯´æ˜Žå·²ç»ä¸¢å¼ƒäº†ç›¸åº”æ•°é‡çš„è¡Œï¼Œè·³å‡ºå¾ªçŽ¯
 		{
 			break;
 		}

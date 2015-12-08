@@ -1,42 +1,42 @@
 #include <time.h> 
 #include <stdio.h>
 #include <stdlib.h>
-int writeQueue(rowCount)                            //ÓÃÀ´¸ù¾İÊäÈëµÄ¶ª°üÂÊ´´½¨¶ª°üĞòÁĞµÄº¯Êı
+int writeQueue(rowCount)                            //ç”¨æ¥æ ¹æ®è¾“å…¥çš„ä¸¢åŒ…ç‡åˆ›å»ºä¸¢åŒ…åºåˆ—çš„å‡½æ•°
 {
 	FILE *fp;
 	char ch;
 	fp = fopen("D:/writeQueue.txt", "w");
 
 	int losePercentage = 0;
-	printf("ÇëÊäÈë¶ª°üÂÊ""%%""\n");
+	printf("è¯·è¾“å…¥ä¸¢åŒ…ç‡""%%""\n");
 	scanf("%d", &losePercentage);
 
 	if (losePercentage<0 || losePercentage>100)
 	{
-		printf("ÇëÊäÈëÕıÈ·µÄ¶ª°üÂÊ£¡");
+		printf("è¯·è¾“å…¥æ­£ç¡®çš„ä¸¢åŒ…ç‡ï¼");
 		return 1;
 	}
 
-	int buff = 0;                                    //ÓÃÀ´ÔİÊ±´æ·Å²úÉúµÄËæ»úÊıµÄ±äÁ¿
+	int buff = 0;                                    //ç”¨æ¥æš‚æ—¶å­˜æ”¾äº§ç”Ÿçš„éšæœºæ•°çš„å˜é‡
 
-	srand((unsigned)time(NULL));                     //ÓÃÊ±¼ä×öÖÖ£¬Ã¿´Î²úÉúËæ»úÊı²»Ò»Ñù
+	srand((unsigned)time(NULL));                     //ç”¨æ—¶é—´åšç§ï¼Œæ¯æ¬¡äº§ç”Ÿéšæœºæ•°ä¸ä¸€æ ·
 
 	for (int i = 0; i < rowCount; i++)
 	{
-		buff = rand() % 100 + 0;                     //²úÉú1-100µÄËæ»úÊı
+		buff = rand() % 100 + 0;                     //äº§ç”Ÿ1-100çš„éšæœºæ•°
 		if (buff >= losePercentage)
 		{
 			fputs("-", fp);
-			//printf("-");                           //ÆÁÏÔÊä³öÑéÖ¤
+			//printf("-");                           //å±æ˜¾è¾“å‡ºéªŒè¯
 		}
 		else{
 			fputs("|", fp);
-			//printf("|");                            //ÆÁÏÔÊä³öÑéÖ¤
+			//printf("|");                            //å±æ˜¾è¾“å‡ºéªŒè¯
 		}
 	}
 	fclose(fp);
 
-	printf("ÓĞÏß»·¾³¶ª°üĞòÁĞÊä³ö³É¹¦£¡\n");
+	printf("æœ‰çº¿ç¯å¢ƒä¸¢åŒ…åºåˆ—è¾“å‡ºæˆåŠŸï¼\n");
 
 	return 0;
 

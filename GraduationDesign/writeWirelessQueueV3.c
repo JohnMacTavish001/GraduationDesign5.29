@@ -1,5 +1,5 @@
-/*¸Ãº¯Êý»ùÓÚGEÄ£ÐÍ£¬Ç°ÌáÊÇÄ¬ÈÏÔÚ¡°ºÃ¡±µÄ×´Ì¬ÏÂ¶ª°üÂÊÎª0£¬ÔÚ¡°»µ¡±µÄÇé¿öÏÂ¶ª°üÂÊÎª100%¡£*/
-/*ÔÚ´ËÇé¿öÏÂ£¬Í¨¹ý¼ÆËã¿ÉµÃÆ½¾ù·â°ü¶ªÊ§ÂÊPaverage=Pgb/(Pgb+Pbg)*/
+/*è¯¥å‡½æ•°åŸºäºŽGEæ¨¡åž‹ï¼Œå‰ææ˜¯é»˜è®¤åœ¨â€œå¥½â€çš„çŠ¶æ€ä¸‹ä¸¢åŒ…çŽ‡ä¸º0ï¼Œåœ¨â€œåâ€çš„æƒ…å†µä¸‹ä¸¢åŒ…çŽ‡ä¸º100%ã€‚*/
+/*åœ¨æ­¤æƒ…å†µä¸‹ï¼Œé€šè¿‡è®¡ç®—å¯å¾—å¹³å‡å°åŒ…ä¸¢å¤±çŽ‡Paverage=Pgb/(Pgb+Pbg)*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,46 +15,46 @@ int writeWirelessQueueV3(rowCount)
 	BOOL	status = 0;
 	BOOL	lastStatus = 1;
 
-	float lostPercentageBuff = 0;							//ÊäÈë1-100Ö®¼äµÄÕûÊýµ±×÷
-	float Paverage = 0;										//¶ª°üÂÊ
+	float lostPercentageBuff = 0;							//è¾“å…¥1-100ä¹‹é—´çš„æ•´æ•°å½“ä½œ
+	float Paverage = 0;										//ä¸¢åŒ…çŽ‡
 
-	printf("ÇëÊäÈë¶ª°üÂÊ""%%""\n");
+	printf("è¯·è¾“å…¥ä¸¢åŒ…çŽ‡""%%""\n");
 	scanf("%f", &lostPercentageBuff);
 
 	if (lostPercentageBuff > 100 || lostPercentageBuff < 0)
 	{
-		printf("ÇëÊäÈëÕýÈ·µÄ¶ª°üÂÊ£¡");
+		printf("è¯·è¾“å…¥æ­£ç¡®çš„ä¸¢åŒ…çŽ‡ï¼");
 		return 1;
 	}
 
-	Paverage = lostPercentageBuff / 100;					//Æ½¾ù·â°üÒÅÊ§ÂÊ
+	Paverage = lostPercentageBuff / 100;					//å¹³å‡å°åŒ…é—å¤±çŽ‡
 
-	float Pbb = 0.88888889;									//GEÄ£ÐÍÖÐµÄPbb²ÎÊý
-	float Pbg = 1 - Pbb;									//GEÄ£ÐÍÖÐµÄPbg²ÎÊý
+	float Pbb = 0.88888889;									//GEæ¨¡åž‹ä¸­çš„Pbbå‚æ•°
+	float Pbg = 1 - Pbb;									//GEæ¨¡åž‹ä¸­çš„Pbgå‚æ•°
 
-	float Pgb = Paverage * Pbg / (1 - Paverage);			//GEÄ£ÐÍÖÐµÄPgb²ÎÊý
-	float Pgg = 1 - Pgb;									//GEÄ£ÐÍÖÐµÄPgg²ÎÊý
-	float intBuff = 0;										//ÔÝ´æÃ¿´ÎËæ»úÊ±ºòËæ»úÕûÊýÖµµÄ±äÁ¿
-	float buff = intBuff / 100;								//ÓÃÀ´ÔÝ´æÃ¿´ÎËæ»ú²úÉúµÄÊýÖµµÄ±äÁ¿
+	float Pgb = Paverage * Pbg / (1 - Paverage);			//GEæ¨¡åž‹ä¸­çš„Pgbå‚æ•°
+	float Pgg = 1 - Pgb;									//GEæ¨¡åž‹ä¸­çš„Pggå‚æ•°
+	float intBuff = 0;										//æš‚å­˜æ¯æ¬¡éšæœºæ—¶å€™éšæœºæ•´æ•°å€¼çš„å˜é‡
+	float buff = intBuff / 100;								//ç”¨æ¥æš‚å­˜æ¯æ¬¡éšæœºäº§ç”Ÿçš„æ•°å€¼çš„å˜é‡
 
-	int lostPackageAmount = rowCount * Paverage;			//ÓÃÓÚ¼ÆËã×Ü¹²¶ªÊ§µÄÊý¾Ý°ü£¬È·±£¶ª°üÊýÁ¿µÄ×¼È·ÐÔ
+	int lostPackageAmount = rowCount * Paverage;			//ç”¨äºŽè®¡ç®—æ€»å…±ä¸¢å¤±çš„æ•°æ®åŒ…ï¼Œç¡®ä¿ä¸¢åŒ…æ•°é‡çš„å‡†ç¡®æ€§
 
 	FILE *fp;
-	fp = fopen("D:/writeQueue.txt", "w");					//´ò¿ªÖ»Ð´ÎÄ¼þ£¬ÈôÎÄ¼þ´æÔÚÔòÎÄ¼þ³¤¶ÈÇåÎª0£¬¼´¸ÃÎÄ¼þÄÚÈÝ»áÏûÊ§¡£ÈôÎÄ¼þ²»´æÔÚÔò½¨Á¢¸ÃÎÄ¼þ
+	fp = fopen("D:/writeQueue.txt", "w");					//æ‰“å¼€åªå†™æ–‡ä»¶ï¼Œè‹¥æ–‡ä»¶å­˜åœ¨åˆ™æ–‡ä»¶é•¿åº¦æ¸…ä¸º0ï¼Œå³è¯¥æ–‡ä»¶å†…å®¹ä¼šæ¶ˆå¤±ã€‚è‹¥æ–‡ä»¶ä¸å­˜åœ¨åˆ™å»ºç«‹è¯¥æ–‡ä»¶
 
-	srand((unsigned)time(NULL));							//ÓÃÊ±¼ä×ö²úÉúËæ»úÊýµÄÖÖ×Ó£¬×¢ÒâÒ»¶¨·ÅÔÚÑ­»·ÌåÍâ
+	srand((unsigned)time(NULL));							//ç”¨æ—¶é—´åšäº§ç”Ÿéšæœºæ•°çš„ç§å­ï¼Œæ³¨æ„ä¸€å®šæ”¾åœ¨å¾ªçŽ¯ä½“å¤–
 
 	for (int i = 0; i < rowCount; i++)
 	{
-		intBuff = rand() % 100 + 0;							//²úÉúËæ»úÊý
+		intBuff = rand() % 100 + 0;							//äº§ç”Ÿéšæœºæ•°
 		buff = intBuff / 100;
 
-		if (lostPackageAmount < 1)							//Èç¹û¸Ã²ÎÊý²»´óÓÚÁã£¬ËµÃ÷ÒÑ¾­¶ª¹»ÁË¹æ¶¨ÊýÁ¿µÄÊý¾Ý°ü
+		if (lostPackageAmount < 1)							//å¦‚æžœè¯¥å‚æ•°ä¸å¤§äºŽé›¶ï¼Œè¯´æ˜Žå·²ç»ä¸¢å¤Ÿäº†è§„å®šæ•°é‡çš„æ•°æ®åŒ…
 		{
-			break;											//Ìø³öÑ­»·(ÕâÑù¿ÉÒÔ±£Ö¤×Ü¶ª°üÊýµÄ×¼È·ÐÔ£¬µ«ÊÇµ±ÊäÈë¶ª°üÂÊÎªÁãÊ±»áÌø³öÒÔÖÁÓÚ²»ÄÜÐ´³öÐòÁÐ)
+			break;											//è·³å‡ºå¾ªçŽ¯(è¿™æ ·å¯ä»¥ä¿è¯æ€»ä¸¢åŒ…æ•°çš„å‡†ç¡®æ€§ï¼Œä½†æ˜¯å½“è¾“å…¥ä¸¢åŒ…çŽ‡ä¸ºé›¶æ—¶ä¼šè·³å‡ºä»¥è‡³äºŽä¸èƒ½å†™å‡ºåºåˆ—)
 		}
 
-		if (lastStatus == 0)								//Èç¹ûÉÏÒ»Ê±¿ÌµÄ×´Ì¬ÊÇ¶ª°ü£¬ÔòËæ»úÊýÓëPbg»òPbb½øÐÐ±È½Ï
+		if (lastStatus == 0)								//å¦‚æžœä¸Šä¸€æ—¶åˆ»çš„çŠ¶æ€æ˜¯ä¸¢åŒ…ï¼Œåˆ™éšæœºæ•°ä¸ŽPbgæˆ–Pbbè¿›è¡Œæ¯”è¾ƒ
 		{
 			if (buff > Pbg)
 			{
@@ -70,7 +70,7 @@ int writeWirelessQueueV3(rowCount)
 				status = 1;
 			}
 		}
-		if (lastStatus == 1)								//Èç¹ûÉÏÒ»Ê±¿ÌµÄ×´Ì¬ÊÇ²»¶ª°ü£¬ÔòËæ»úÊýÓëPgb»òPgg½øÐÐ±È½Ï
+		if (lastStatus == 1)								//å¦‚æžœä¸Šä¸€æ—¶åˆ»çš„çŠ¶æ€æ˜¯ä¸ä¸¢åŒ…ï¼Œåˆ™éšæœºæ•°ä¸ŽPgbæˆ–Pggè¿›è¡Œæ¯”è¾ƒ
 		{
 			if (buff > Pgb)
 			{
@@ -87,13 +87,13 @@ int writeWirelessQueueV3(rowCount)
 			}
 		}
 
-		lastStatus = status;								//Ã¿´ÎÑ­»·½áÊø£¬ÓÃ±¾Ê±¿Ì×´Ì¬ÎªÉÏÊ±¿Ì×´Ì¬¸³Öµ£¬±¾Ê±¿Ì×´Ì¬³ÉÎªÏÂÒ»Ê±¿ÌµÄ¡°ÉÏÊ±¿Ì×´Ì¬¡±
+		lastStatus = status;								//æ¯æ¬¡å¾ªçŽ¯ç»“æŸï¼Œç”¨æœ¬æ—¶åˆ»çŠ¶æ€ä¸ºä¸Šæ—¶åˆ»çŠ¶æ€èµ‹å€¼ï¼Œæœ¬æ—¶åˆ»çŠ¶æ€æˆä¸ºä¸‹ä¸€æ—¶åˆ»çš„â€œä¸Šæ—¶åˆ»çŠ¶æ€â€
 
 	}
 
 	fclose(fp);
 
-	printf("ÎÞÏß»·¾³¶ª°üÐòÁÐÊä³ö³É¹¦£¡\n");
+	printf("æ— çº¿çŽ¯å¢ƒä¸¢åŒ…åºåˆ—è¾“å‡ºæˆåŠŸï¼\n");
 
 	return 0;
 }
